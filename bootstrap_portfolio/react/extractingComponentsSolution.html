@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Hello React!</title>
+    <!-- import React libraries -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>    
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+  </head>
+  </head>
+  <body>
+    <div id="root"></div>    
+    <script type="text/babel">   
+      
+   /* The Comment component consists of the author's avatar, name, comment, and date of comment  */
+
+   /* Pull out the avatar image and author name and make it a component */
+  function Avatar(props) {
+    return (    
+    <div>
+        <img
+          src={props.user.avatarUrl}
+          alt={props.user.name}
+        />
+      </div>
+    );
+  }
+
+  /* Then create a component, UserInfo, that will include the avatar and the author name */
+  function UserInfo(props) {
+    return (
+      <div>
+        <Avatar user={props.user} />
+        {props.user.name} 
+        </div>
+    );
+  }
+
+  function Comment({author, text, date}) {
+    return (    
+    <div>
+      <UserInfo user={author} />
+      <div>
+        {text}
+      </div>
+      <div>
+        {date}
+    </div>
+    </div>
+    );
+  }
+
+  var authorObj = {name: "Robo",
+              avatarUrl:"https://gravatar.com/avatar/748506960d38cfe99fbe6819b55b916e?s=200&d=robohash&r=x"}
+      
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      //root.render(myUserDefinedElement);  
+      //we can also just render the element itself without assign it to a variable
+      root.render(<Comment author={authorObj} text="beep bop boop" date={new Date().toLocaleTimeString()}/>);
+    </script>
+  </body>
+</html>

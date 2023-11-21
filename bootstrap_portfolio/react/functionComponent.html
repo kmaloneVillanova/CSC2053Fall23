@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Hello React!</title>
+    <!-- import React libraries -->
+     <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>    
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+    <script type="text/babel">  
+    function NavMenu() {        
+    return ( 
+      <div>
+      <ul className="nav justify-content-end">
+        <li className="nav-item">
+          <a className="nav-link" href="../index.html">Home</a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link" href="../accessibility.html">Accessibility</a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link" href="../javascript.html">JavaScript</a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link" href="../react.html" >React</a>
+        </li>
+      </ul>
+    </div> 
+    );
+  }
+
+  function Welcome({name}) {
+    //Only JSX is allowed in the return statement
+    //If you need to use a JavaScript variable in the return, you 
+    //must wrap it in {} like {name} below.
+      return (
+        <div>
+          <NavMenu />
+          <h1>Welcome, {name}</h1>
+      </div>  
+      );
+  }
+  const root = ReactDOM.createRoot(document.getElementById("root"));
+  //root.render(<NavMenu />);
+  root.render(<Welcome name="Boomer" />);
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>    
+  </body>
+</html>
